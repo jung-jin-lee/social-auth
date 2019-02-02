@@ -1,0 +1,30 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin: 200px auto;
+    max-width: 480px;
+    padding: 0 20px;
+    text-align: center;
+    border: 2px solid #f0f0f0;
+    box-sizing: border-box;
+}
+
+.btn__social-login {
+    background-color: rgb(65, 131, 196);
+    border-radius: 2px;
+    border: 0;
+    color: #fff;
+    padding: 15px;
+    font-family: 'Open Sans', sans-serif;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.btn__social-login--facebook {
+    font-size: 14px;
+    margin-left: 10px;
+    font-weight: 700;
+}
