@@ -3,3 +3,4 @@ example/
 yarn-debug.log
 yarn.lock
 package-lock.json
+*.css
