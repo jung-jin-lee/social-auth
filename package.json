@@ -4,9 +4,11 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon server/index.js"
+    "dev": "nodemon server/index.js",
+    "sass": "node-sass ./src/scss/main.scss -o ."
   },
   "dependencies": {
+    "bootstrap": "4.2.1",
     "dotenv": "6.2.0",
     "koa": "^2.7.0",
     "koa-logger": "3.2.0",
@@ -19,6 +21,9 @@
     "passport-facebook": "3.0.0"
   },
   "devDependencies": {
-    "nodemon": "^1.18.9"
+    "node-sass": "^4.11.0",
+    "nodemon": "^1.18.9",
+    "sass-loader": "^7.1.0",
+    "webpack": "4.29.0"
   }
 }
