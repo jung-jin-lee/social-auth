@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon server/index.js",
-    "sass": "node-sass ./src/scss/main.scss -o ."
+    "sass": "node-sass ./src/scss/main.scss -o .",
+    "build": "webpack"
   },
   "dependencies": {
     "bootstrap": "4.2.1",
@@ -16,14 +17,19 @@
     "koa-router": "^7.4.0",
     "koa-static": "5.0.0",
     "koa-views": "6.1.5",
+    "mongoose": "5.4.10",
     "nunjucks": "3.1.7",
     "passport": "0.4.0",
     "passport-facebook": "3.0.0"
   },
   "devDependencies": {
+    "css-loader": "^2.1.0",
     "node-sass": "^4.11.0",
     "nodemon": "^1.18.9",
     "sass-loader": "^7.1.0",
-    "webpack": "4.29.0"
+    "style-loader": "^0.23.1",
+    "terser": "3.16.0",
+    "webpack": "4.29.0",
+    "webpack-cli": "3.2.1"
   }
 }
