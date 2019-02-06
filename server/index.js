@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const path = require('path')
 const logger = require('koa-logger')
 const serve = require('koa-static')
@@ -8,35 +10,26 @@ const passport = require('koa-passport')
 const authRouter = require('./routes/auth')
 const pageRouter = require('./routes/index')
 
+const mongoose = require('mongoose')
+const Post = require('./models/post')
+
+mongoose.Promise = global.Promise
+
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true })
+.then(() => console.log('res:'))
+.catch(error => console.error('error:', error))
+
 app.use(logger())
-// app.use(ctx => {
-//     ctx.body = 'Hello World'
-// })
-
-console.log(
-    `path.resolve(__dirname, '../public'):`, path.resolve(__dirname, '../public')
-)
-
-// app.use((ctx, next) => {
-//     console.log('test', ctx.req.url)
-//     return next()
-// })
-
 
 app.use(serve(path.resolve(__dirname, '../public')))
 app.use(views(path.resolve(__dirname, '../public'), { map: {html: 'nunjucks' }}))
 
-app.use(passport.initialize());
+app.use(passport.initialize())
 
 app.use(authRouter.routes())
 app.use(authRouter.allowedMethods())
 app.use(pageRouter.routes())
 app.use(pageRouter.allowedMethods())
-
-// app.use(async ctx => {
-//     await ctx.render('index')
-//     console.log('ctx.request::::', ctx.request)
-// })
 
 app.use(ctx => {
     console.log('ctx.request::::', ctx.request)
